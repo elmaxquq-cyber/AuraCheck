@@ -1,0 +1,23 @@
+@media (max-width: 1024px) and (min-width: 768px) {
+
+     body {
+        background-color: rgb(81, 104, 218);
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .funcionalidades li {
+        font-size: 1rem;
+    }
+}

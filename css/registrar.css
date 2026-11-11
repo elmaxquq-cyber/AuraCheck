@@ -1,0 +1,72 @@
+body{
+    background-color: rgb(103, 162, 240);
+    font-family: Arial, sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+    margin: 0; /* Asegura que no haya márgenes por defecto del navegador */
+
+    /* PROPIEDADES CORREGIDAS: */
+    background-image: url('../media/registrar.png');
+    background-size: cover;       /* Escalala la imagen para que cubra todo el contenedor (el body) */
+    background-position: center;  /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita en mosaico */
+    background-attachment: fixed; /* Opcional: mantiene el fondo fijo si haces scroll */
+
+}
+
+.contenedor{
+    background-color:white;
+
+    width:500px;
+    padding:30px;
+
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+
+    display:grid;
+    gap:12px;
+}
+
+h1{
+    text-align:center;
+    color:#1d3557;
+}
+
+p{
+    text-align:center;
+    color:#555;
+    margin-bottom:10px;
+}
+
+label{
+    font-weight:bold;
+}
+
+input,
+select{
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+button{
+    margin-top:10px;
+    padding:12px;
+
+    border:none;
+    border-radius:6px;
+
+    background-color:#4a86d9;
+    color:white;
+
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color:#356fc2;
+}

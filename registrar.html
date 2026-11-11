@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraCheck</title>
+    <link rel="stylesheet" href="css/registrar.css">
+    <link rel="icon" type="image/png" href="media/Logo.png">
+    <link rel="stylesheet" href="css/responsive.css">
+
+
+
+    
+</head>
+<body>
+
+    <main class="contenedor">
+
+        <h1>Registrar Venta</h1>
+
+        <p>
+            Registra tu venta en segundos y asegura tu transacción con total transparencia.
+        </p>
+
+        <label for="producto">Producto:</label>
+        <select id="producto">
+            <option value="">Selecciona un producto</option>
+            <option value="1">Producto 1</option>
+            <option value="2">Producto 2</option>
+            <option value="3">Producto 3</option>
+        </select>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" min="1">
+
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" step="0.01">
+
+        <label for="total">Total:</label>
+        <input type="text" id="total" readonly>
+
+        <button>Registrar Venta</button>
+
+    </main>
+
+</body>
+</html>

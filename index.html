@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraCheck</title>
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- ICONO -->
+    <link rel="icon" type="image/png" href="media/Logo.png">
+
+    <!-- LINKEO DEL RESPONSIVE -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    
+
+</head>
+<body>
+
+    <video autoplay muted loop id="myVideo">
+        <source src="media/iniciodesesion.mp4" type="video/mp4">
+    </video>
+
+    <!-- INICIO DE SESIÓN -->
+    <main class="formulario">
+
+        <h1>Iniciar Sesión</h1>
+
+        <!-- AGREGAMOS id="login" -->
+        <form id="login">
+
+            <section class="username">
+                <input type="text" id="usuario" required>
+                <label>Usuario</label>
+            </section>
+
+            <section class="contraseña"> 
+                <input type="password" id="password" required>
+                <label>Contraseña</label>
+            </section>
+
+            <!-- OLVIDO DE CONTRASEÑA -->
+            <section class="recordar">
+                ¿Olvidaste tu contraseña?
+            </section>
+
+            <input type="submit" value="Iniciar Sesión">
+
+            <!-- EN CASO DE QUE EL USUARIO NO SE HAYA REGISTRADO -->
+            <section class="registrar">
+                <p>
+                    ¿No tienes una cuenta?
+                    <a href="registrar.html">Regístrate aquí</a>
+                </p>
+            </section>
+
+        </form>
+
+    </main>
+
+    <!-- CODIGO A BASE DE JAVASCRIPT -->
+    <script>
+
+        const formulario = document.getElementById("login");
+
+        formulario.addEventListener("submit", function(e){
+
+            
+            e.preventDefault();
+
+            let usuario = document.getElementById("usuario").value;
+            let password = document.getElementById("password").value;
+
+            // CONTRASEÑA CORRECTA
+            if(password === "1234"){
+
+                // REDIRECCIONA A principal.html
+                window.location.href = "principal.html";
+
+            }else{
+
+                alert("Contraseña incorrecta");
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
