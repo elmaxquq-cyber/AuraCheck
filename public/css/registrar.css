@@ -10,7 +10,7 @@ body{
     margin: 0; /* Asegura que no haya márgenes por defecto del navegador */
 
     /* PROPIEDADES CORREGIDAS: */
-    background-image: url('../media/registrar.png');
+    background-image: url('css/media/registrar.png');
     background-size: cover;       /* Escalala la imagen para que cubra todo el contenedor (el body) */
     background-position: center;  /* Centra la imagen de fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita en mosaico */

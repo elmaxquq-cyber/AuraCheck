@@ -4,7 +4,7 @@ body {
     background: linear-gradient(120deg, #529ac6, #f8f8f8a1);
     font-family: Arial, sans-serif;
     height: 100vh;                                          /* Ocupa toda la altura de la ventana */
-    background-image: url('../media/fondoazull.png');       /* Imagen de fondo */
+    background-image: url('css/media/fondoazull.png');       /* Imagen de fondo */
 }
 
 video#myVideo {
