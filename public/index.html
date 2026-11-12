@@ -60,34 +60,14 @@
 
     </main>
 
-    <!-- CODIGO A BASE DE JAVASCRIPT -->
-    <script>
 
-        const formulario = document.getElementById("login");
 
-        formulario.addEventListener("submit", function(e){
 
-            
-            e.preventDefault();
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../api/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
 
-            let usuario = document.getElementById("usuario").value;
-            let password = document.getElementById("password").value;
-
-            // CONTRASEÑA CORRECTA
-            if(password === "1234"){
-
-                // REDIRECCIONA A principal.html
-                window.location.href = "principal.html";
-
-            }else{
-
-                alert("Contraseña incorrecta");
-
-            }
-
-        });
-
-    </script>
 
 </body>
 </html>
