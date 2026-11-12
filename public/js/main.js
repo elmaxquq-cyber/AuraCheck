@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const paginaActual = window.location.pathname;
 
-    // 1. LOGIN (index.html)
+    // 1. LOGIN Y REGISTRO (index.html)
     const formLogin = document.getElementById("login");
     if (formLogin) {
         formLogin.addEventListener("submit", async (e) => {
@@ -14,6 +14,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                 window.location.href = "principal.html";
             }
         });
+
+        const enlaceRegistro = formLogin.querySelector(".registrar a");
+        if (enlaceRegistro) {
+            enlaceRegistro.addEventListener("click", async (e) => {
+                e.preventDefault();
+                const nuevoUser = prompt("Crea un nombre de usuario nuevo:");
+                if (!nuevoUser || !nuevoUser.trim()) return;
+                const nuevaPass = prompt("Crea una contraseña para " + nuevoUser.trim() + ":");
+                if (!nuevaPass || !nuevaPass.trim()) return;
+
+                const creado = await registrarUsuario(nuevoUser.trim(), nuevaPass.trim());
+                if (creado) {
+                    alert("Cuenta creada con exito. Iniciando sesion...");
+                    window.location.href = "principal.html";
+                }
+            });
+        }
     }
 
     // 2. INVENTARIO / PRODUCTOS (agregar.html)

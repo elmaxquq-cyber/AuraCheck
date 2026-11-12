@@ -15,6 +15,35 @@ async function iniciarSesion(username, password) {
     return true;
 }
 
+
+
+async function registrarUsuario(username, password) {
+    const { data, error } = await supabaseClient
+        .from('usuarios')
+        .insert([{ username: username, password: password }])
+        .select()
+        .single();
+
+    if (error) {
+        if (error.code === '23505') {
+            alert("Ese nombre de usuario ya existe. Elige otro.");
+        } else {
+            alert("Error al registrar usuario: " + error.message);
+        }
+        return false;
+    }
+
+    localStorage.setItem('usuario_actual', JSON.stringify(data));
+    return true;
+}
+
+
+
+
+
+
+
+
 async function obtenerProductos() {
     const { data, error } = await supabaseClient
         .from('productos')
