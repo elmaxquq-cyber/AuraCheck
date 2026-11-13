@@ -3,54 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AuraCheck</title>
-    <link rel="stylesheet" href="css/principal.css">
-    <link rel="icon" type="image/png" href="css/media/Logo.png">
+    <title>Panel principal | AuraCheck</title>
+    <link rel="icon" href="media/Logo.png">
+    <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-
-    <header>
-        <h1>Bienvenido a AuraCheck</h1>
-        <nav>
-            <ul>
-                <li><a href="agregar.html">Agregar Producto</a></li>
-                <li><a href="reportar.html">Reportar Problema</a></li>
-                <li><a href="registrar.html">Registrar Venta</a></li>
-            </ul>
+    <header class="barra">
+        <a class="marca" href="principal.html">
+            <img src="media/Logo.png" alt="">AuraCheck
+        </a>
+        <nav class="nav">
+            <a class="activo" href="principal.html">Inicio</a>
+            <a href="agregar.html">Productos</a>
+            <a href="inventario.html">Inventario</a>
+            <a href="registrar.html">Registrar venta</a>
+            <a href="historial-ventas.html">Ventas</a>
+            <a href="reportar.html">Reportar</a>
+            <button data-salir type="button">Cerrar sesión</button>
         </nav>
     </header>
-
-    <main>
-        <section class="bienvenida">
-            <h2>Tu aliado en el control de stock</h2>
-            <p>AuraCheck es la herramienta perfecta para mantener un control preciso de tu inventario. Con nuestra plataforma, podrás agregar productos, monitorear cantidades y reportar cualquier problema que encuentres. ¡Haz crecer tu negocio con AuraCheck!</p>
+    <main class="contenedor">
+        <section class="hero">
+            <h1 data-saludo>Bienvenido/a a AuraCheck</h1>
+            <p>Organizá tus productos, controlá el stock y registrá tus ventas desde un solo lugar. Una herramienta simple para tomar mejores decisiones en tu negocio.</p>
+            <a class="btn" href="agregar.html">Comenzar a cargar productos</a>
         </section>
-
-        <section class="funcionalidades">
-            <h2>Funcionalidades Destacadas</h2>
-            <ul>
-                <li>Agregar productos fácilmente.</li>
-                <li>Monitorear el stock en tiempo real.</li>
-                <li>Reportar problemas de manera rápida y sencilla.</li>
-            </ul>
+        <section class="encabezado" style="margin-top:32px">
+            <h2>¿Qué necesitás hacer?</h2>
+            <p>Accedé rápidamente a las herramientas principales.</p>
         </section>
+        <div class="atajos">
+            <article class="atajo">
+                <h3>Productos</h3>
+                <p>Agregá productos y definí sus cantidades y precios.</p>
+                <a href="agregar.html">Administrar productos →</a>
+            </article>
+            <article class="atajo">
+                <h3>Inventario</h3>
+                <p>Consultá las existencias disponibles de cada artículo.</p>
+                <a href="inventario.html">Ver inventario →</a>
+            </article>
+            <article class="atajo">
+                <h3>Registrar venta</h3>
+                <p>Cargá una venta y descontá automáticamente el stock.</p>
+                <a href="registrar.html">Registrar venta →</a>
+            </article>
+            <article class="atajo">
+                <h3>Historial de ventas</h3>
+                <p>Revisá las operaciones realizadas.</p>
+                <a href="historial-ventas.html">Consultar ventas →</a>
+            </article>
+            <article class="atajo">
+                <h3>Reportar un problema</h3>
+                <p>Dejanos un mensaje si encontrás algún inconveniente.</p>
+                <a href="reportar.html">Enviar reporte →</a>
+            </article>
+            <article class="atajo">
+                <h3>Ayuda</h3>
+                <p>Contactate con el equipo de AuraCheck.</p>
+                <a href="mailto:info@auracheck.com">info@auracheck.com</a>
+            </article>
+        </div>
+    </main>
+    <footer class="pie">© 2026 AuraCheck · Control simple, negocio organizado.</footer>
 
-        <section class="contacto">
-            <h2>Contacto</h2>
-            <p>¿Tienes preguntas o necesitas ayuda? Contáctanos a través de nuestro correo electrónico:
-                <p>info@auracheck.com</p>
-
-
-
-
-
-       
-                <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../api/config.js"></script>
-<script src="js/api.js"></script>
-<script src="js/main.js"></script>
-          
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../api/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
-

@@ -3,54 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AuraCheck</title>
-    <link rel="stylesheet" href="css/registrar.css">
-    <link rel="icon" type="image/png" href="css/media/Logo.png">
+    <title>Registrar venta | AuraCheck</title>
+    <link rel="icon" href="media/Logo.png">
+    <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/responsive.css">
-
-
-
-    
 </head>
 <body>
-
+    <header class="barra">
+        <a class="marca" href="principal.html">
+            <img src="media/Logo.png" alt="">AuraCheck
+        </a>
+        <nav class="nav">
+            <a href="principal.html">Inicio</a>
+            <a href="agregar.html">Productos</a>
+            <a href="inventario.html">Inventario</a>
+            <a class="activo" href="registrar.html">Registrar venta</a>
+            <a href="historial-ventas.html">Ventas</a>
+            <a href="reportar.html">Reportar</a>
+        </nav>
+    </header>
     <main class="contenedor">
-
-        <h1>Registrar Venta</h1>
-
-        <p>
-            Registra tu venta en segundos y asegura tu transacción con total transparencia.
-        </p>
-
-        <label for="producto">Producto:</label>
-        <select id="producto">
-            <option value="">Selecciona un producto</option>
-            <option value="1">Producto 1</option>
-            <option value="2">Producto 2</option>
-            <option value="3">Producto 3</option>
-        </select>
-
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" min="1">
-
-        <label for="precio">Precio:</label>
-        <input type="number" id="precio" step="0.01">
-
-        <label for="total">Total:</label>
-        <input type="text" id="total" readonly>
-
-        <button>Registrar Venta</button>
-
+        <header class="encabezado">
+            <h1>Registrar una venta</h1>
+            <p>Seleccioná el producto y la cantidad. El total se calcula automáticamente y el stock se actualiza al confirmar.</p>
+        </header>
+        <section class="tarjeta">
+            <div class="mensaje" data-mensaje hidden></div>
+            <form id="form-venta" class="form-grid">
+                <div class="campo completo">
+                    <label for="producto">Producto</label>
+                    <select id="producto" name="producto" required>
+                        <option value="">Seleccioná un producto</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="cantidad">Cantidad</label>
+                    <input type="number" id="cantidad" name="cantidad" min="1" step="1" required>
+                </div>
+                <div class="campo">
+                    <label for="total">Total de la venta</label>
+                    <input type="text" id="total" name="total" placeholder="$ 0,00" readonly>
+                </div>
+                <div class="campo completo acciones">
+                    <button class="btn" type="submit">Confirmar venta</button>
+                    <a class="btn btn-secundario" href="historial-ventas.html">Ver historial</a>
+                </div>
+            </form>
+        </section>
     </main>
 
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../api/config.js"></script>
-<script src="js/api.js"></script>
-<script src="js/main.js"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../api/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

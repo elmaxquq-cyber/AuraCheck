@@ -1,92 +1,439 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+/* ==============================
+   VARIABLES
+============================== */
+
+:root {
+    --azul: #173b63;
+    --azul2: #245b8f;
+    --celeste: #eaf3fb;
+    --fondo: #f4f7fb;
+    --texto: #1e293b;
+    --muted: #64748b;
+    --blanco: #fff;
+    --borde: #dce5ef;
+    --verde: #138a68;
+    --rojo: #c24141;
+    --sombra: 0 18px 45px rgba(20, 48, 78, .12);
+}
+
+/* ==============================
+   ESTILOS GENERALES
+============================== */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    margin: 0; 
-    padding: 0;
-    background: linear-gradient(120deg, #529ac6, #f8f8f8a1);
-    font-family: Arial, sans-serif;
-    height: 100vh;                                          /* Ocupa toda la altura de la ventana */
-    background-image: url('css/media/fondoazull.png');       /* Imagen de fondo */
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'DM Sans', Arial, sans-serif;
+    color: var(--texto);
+    background: var(--fondo);
+    line-height: 1.6;
 }
 
-video#myVideo {
-    position: fixed;            
-    right: 0;
-    bottom: 0;
-    min-width: 100%;            /* Asegura que el video ocupe todo el ancho */
-    min-height: 100%;           /* Asegura que el video ocupe toda la altura */
-    z-index: -1;                /* Coloca el video detrás del contenido */
+h1, h2, h3 {
+    font-family: Manrope, 'DM Sans', sans-serif;
+    line-height: 1.2;
+    color: var(--azul);
 }
 
-
-
-
-
-
-.formulario {
-    border: 2px solid rgb(0, 0, 0); /* Borde negro */
-    position: absolute; /* Permite posicionarlo libremente */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centra el formulario */
-    width: 400px; /* Ancho fijo */
-    background-color: rgba(255, 255, 255, 0.827); /* Fondo semitransparente */
-    border-radius: 50px; /* Esquinas redondeadas */
+p {
+    color: var(--muted);
 }
 
-.formulario h1 {
-    text-align: center; /* Centra el texto */
-    color: rgb(0, 0, 0);
-    padding: 20px; /* Espacio interno */
+a {
+    color: var(--azul2);
+    font-weight: 700;
+    text-decoration: none;
 }
 
-
-.formulario form {
-    padding: 60px;
-    box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
+a:hover {
+    text-decoration: underline;
 }
 
-/* Contenedores de usuario y contraseña */
-.formulario .username {
-    position: relative;
-    margin-bottom: 30px; /* Espacio inferior */
+button, input, select, textarea {
+    font: inherit;
 }
 
-.formulario .contraseña {
-    position: relative;
-    margin-bottom: 30px;
+/* ==============================
+   BARRA DE NAVEGACION
+============================== */
+
+.barra {
+    background: #fff;
+    border-bottom: 1px solid var(--borde);
+    padding: 14px clamp(18px, 5vw, 70px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
 
-/* Enlace para recordar contraseña */
-.recordar {
-    margin-bottom: 20px;
-    color: blue; /* Texto azul */
-   
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--azul);
+    font: 800 1.15rem Manrope;
 }
 
-/* Campos de texto y contraseña */
-input[type="text"],
-input[type="password"] {
-    border-color: rgb(0, 0, 0);
-   
+.marca img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
 }
 
-input[type="submit"] {
-    width: 100%; 
-    height: 50px;
-    background: rgb(0, 0, 0); 
-    color: rgb(255, 255, 255);
-    border: 1px solid;
-    border-radius: 25px;
-    font-size: 18px;
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.nav a,
+.nav button {
+    padding: 9px 13px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: #38536e;
+    font-weight: 700;
     cursor: pointer;
-    outline: none; 
 }
 
+.nav a:hover,
+.nav .activo {
+    background: var(--celeste);
+    text-decoration: none;
+}
 
-.registrar {
-    margin: 30px 0;
+/* ==============================
+   CONTENEDORES Y ENCABEZADOS
+============================== */
+
+.contenedor {
+    width: min(1100px, calc(100% - 36px));
+    margin: 42px auto;
+}
+
+.encabezado {
+    margin-bottom: 26px;
+}
+
+.encabezado h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin: 0 0 8px;
+}
+
+.encabezado p {
+    margin: 0;
+}
+
+.tarjeta {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    padding: clamp(20px, 4vw, 34px);
+    box-shadow: var(--sombra);
+    margin-bottom: 22px;
+}
+
+/* ==============================
+   REJILLAS Y ESTADISTICAS
+============================== */
+
+.rejilla {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.estadistica {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.estadistica span {
+    display: block;
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.estadistica strong {
+    display: block;
+    color: var(--azul);
+    font: 800 2rem Manrope;
+    margin-top: 5px;
+}
+
+/* ==============================
+   BOTONES
+============================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 18px;
+    background: var(--azul2);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--azul);
+    text-decoration: none;
+}
+
+.btn-secundario {
+    background: #eaf3fb;
+    color: var(--azul);
+}
+
+.btn-peligro {
+    background: #fff0f0;
+    color: var(--rojo);
+}
+
+.btn-chico {
+    padding: 7px 10px;
+    font-size: .85rem;
+}
+
+/* ==============================
+   FORMULARIOS
+============================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo.completo {
+    grid-column: 1 / -1;
+}
+
+.campo label {
+    font-weight: 700;
+    color: #334e68;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #cbd8e5;
+    border-radius: 10px;
+    background: #fff;
+    color: var(--texto);
+    outline: none;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: #4384bb;
+    box-shadow: 0 0 0 3px #4384bb22;
+}
+
+.acciones {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* ==============================
+   MENSAJES
+============================== */
+
+.mensaje {
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.mensaje[hidden] {
+    display: none;
+}
+
+.mensaje.ok {
+    background: #e8f7f0;
+    color: #176348;
+}
+
+.mensaje.error {
+    background: #fff0f0;
+    color: #a32d2d;
+}
+
+/* ==============================
+   TABLAS
+============================== */
+
+.tabla-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+th, td {
+    text-align: left;
+    padding: 13px 14px;
+    border-bottom: 1px solid var(--borde);
+}
+
+th {
+    color: var(--azul);
+    background: #f3f7fb;
+    font-size: .9rem;
+}
+
+.vacio {
     text-align: center;
-    font-size: 16px;
-    color: black;
+    color: var(--muted);
+    padding: 28px;
 }
 
+/* ==============================
+   PIE DE PAGINA
+============================== */
 
+.pie {
+    text-align: center;
+    padding: 25px;
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+/* ==============================
+   LOGIN
+============================== */
+
+.login-fondo {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: linear-gradient(135deg, #12365dce, #1f6790aa),
+        url('../media/fondoazull.png') center / cover fixed;
+}
+
+.login-caja {
+    width: min(450px, 100%);
+    padding: 36px;
+    background: #fff;
+    border: 1px solid #ffffff80;
+    border-radius: 22px;
+    box-shadow: 0 25px 70px #071d3580;
+}
+
+.login-caja .marca {
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.login-caja h1 {
+    text-align: center;
+    margin: 8px 0;
+}
+
+.login-caja > p {
+    text-align: center;
+    margin: 0 0 25px;
+}
+
+.login-caja form {
+    display: grid;
+    gap: 17px;
+}
+
+.login-caja .acciones .btn {
+    width: 100%;
+}
+
+.login-enlace {
+    text-align: center;
+    margin: 20px 0 0;
+}
+
+/* ==============================
+   HERO / PRESENTACION
+============================== */
+
+.hero {
+    background: linear-gradient(120deg, #123b64ed, #2d7195d9),
+        url('../media/registrarr.png') center / cover;
+    color: #fff;
+    border-radius: 22px;
+    padding: clamp(28px, 5vw, 55px);
+    box-shadow: var(--sombra);
+}
+
+.hero h1 {
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3rem);
+    max-width: 700px;
+}
+
+.hero p {
+    color: #e7f1f9;
+    max-width: 680px;
+}
+
+.hero .btn {
+    background: #fff;
+    color: var(--azul);
+}
+
+/* ==============================
+   ATAJOS
+============================== */
+
+.atajos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.atajo {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.atajo h3 {
+    margin: 0 0 8px;
+}
+
+.atajo p {
+    margin: 0 0 16px;
+}

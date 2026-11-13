@@ -1,48 +1,32 @@
-async function iniciarSesion(username, password) {
+async function iniciarSesion(email, password) {
     const { data, error } = await supabaseClient
         .from('usuarios')
         .select('*')
-        .eq('username', username)
+        .eq('username', email)
         .eq('password', password)
         .single();
 
     if (error || !data) {
-        alert("Usuario o contraseña incorrectos");
-        return false;
+        return null;
     }
 
-    localStorage.setItem('usuario_actual', JSON.stringify(data));
-    return true;
+    sessionStorage.setItem('ac_sesion', JSON.stringify(data));
+    return data;
 }
 
 
-
-async function registrarUsuario(username, password) {
+async function registrarUsuario(email, password) {
     const { data, error } = await supabaseClient
         .from('usuarios')
-        .insert([{ username: username, password: password }])
+        .insert([{ username: email, password: password }])
         .select()
         .single();
 
     if (error) {
-        if (error.code === '23505') {
-            alert("Ese nombre de usuario ya existe. Elige otro.");
-        } else {
-            alert("Error al registrar usuario: " + error.message);
-        }
-        return false;
+        return { error: error.code === '23505' ? 'Ese correo ya está registrado.' : error.message };
     }
-
-    localStorage.setItem('usuario_actual', JSON.stringify(data));
-    return true;
+    return { data };
 }
-
-
-
-
-
-
-
 
 async function obtenerProductos() {
     const { data, error } = await supabaseClient
@@ -66,11 +50,7 @@ async function crearProducto(nombre, cantidad, precio) {
             precio: parseFloat(precio) || 0
         }]);
 
-    if (error) {
-        alert("Error al agregar producto: " + error.message);
-        return false;
-    }
-    return true;
+    return !error;
 }
 
 async function actualizarProducto(id, cantidad, precio) {
@@ -82,34 +62,7 @@ async function actualizarProducto(id, cantidad, precio) {
         })
         .eq('id_producto', id);
 
-    if (error) {
-        alert("Error al actualizar producto: " + error.message);
-        return false;
-    }
-    return true;
-}
-
-async function eliminarProductoPorNombre(nombre) {
-    const { data, error: searchError } = await supabaseClient
-        .from('productos')
-        .select('id_producto')
-        .ilike('nombre_producto', nombre.trim());
-
-    if (searchError || !data || data.length === 0) {
-        alert("No se encontro ningun producto con ese nombre");
-        return false;
-    }
-
-    const { error } = await supabaseClient
-        .from('productos')
-        .delete()
-        .eq('id_producto', data[0].id_producto);
-
-    if (error) {
-        alert("Error al eliminar producto: " + error.message);
-        return false;
-    }
-    return true;
+    return !error;
 }
 
 async function eliminarProducto(id) {
@@ -118,40 +71,56 @@ async function eliminarProducto(id) {
         .delete()
         .eq('id_producto', id);
 
-    if (error) {
-        alert("Error al eliminar producto: " + error.message);
-        return false;
-    }
-    return true;
+    return !error;
 }
 
-async function registrarVentaConDetalle(idUsuario, idProducto, cantidadVendida, precioUnitario) {
+async function registrarVentaConDetalle(idUsuario, productoObj, cantidadVendida) {
+    const cantInt = parseInt(cantidadVendida);
+
     const { data: ventaData, error: ventaError } = await supabaseClient
         .from('ventas')
         .insert([{ id_usuario: idUsuario }])
         .select()
         .single();
 
-    if (ventaError) {
-        alert("Error al registrar la venta: " + ventaError.message);
-        return false;
-    }
+    if (ventaError) return false;
 
     const { error: detalleError } = await supabaseClient
         .from('detalle_venta')
         .insert([{
             id_venta: ventaData.id_venta,
-            id_producto: idProducto,
-            cantidad: parseInt(cantidadVendida),
-            precio_unitario: parseFloat(precioUnitario)
+            id_producto: productoObj.id_producto,
+            cantidad: cantInt,
+            precio_unitario: parseFloat(productoObj.precio)
         }]);
 
-    if (detalleError) {
-        alert("Error al guardar el detalle de venta: " + detalleError.message);
-        return false;
-    }
+    if (detalleError) return false;
+
+    const nuevoStock = Math.max(0, productoObj.cantidad - cantInt);
+    await supabaseClient
+        .from('productos')
+        .update({ cantidad: nuevoStock })
+        .eq('id_producto', productoObj.id_producto);
 
     return true;
+}
+
+async function obtenerHistorialVentas() {
+    const { data, error } = await supabaseClient
+        .from('detalle_venta')
+        .select(`
+            cantidad,
+            precio_unitario,
+            ventas ( fecha ),
+            productos ( nombre_producto )
+        `)
+        .order('id_detalle', { ascending: false });
+
+    if (error) {
+        console.error("Error al obtener historial:", error.message);
+        return [];
+    }
+    return data;
 }
 
 async function enviarReporte(descripcion, idUsuario) {
@@ -159,9 +128,16 @@ async function enviarReporte(descripcion, idUsuario) {
         .from('reportes_problema')
         .insert([{ descripcion: descripcion, id_usuario: idUsuario }]);
 
+    return !error;
+}
+
+async function recuperarContraseña(email) {
+    const { data, error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + '/actualizar-password.html', // Página donde podrá escribir la nueva contraseña
+    });
+
     if (error) {
-        alert("Error al enviar reporte: " + error.message);
-        return false;
+        return { error: error.message };
     }
-    return true;
+    return { data };
 }

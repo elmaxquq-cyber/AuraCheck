@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de ventas | AuraCheck</title>
+    <link rel="icon" href="media/Logo.png">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="barra">
+        <a class="marca" href="principal.html">
+            <img src="media/Logo.png" alt="">AuraCheck
+        </a>
+        <nav class="nav">
+            <a href="principal.html">Inicio</a>
+            <a href="agregar.html">Productos</a>
+            <a href="inventario.html">Inventario</a>
+            <a href="registrar.html">Registrar venta</a>
+            <a class="activo" href="historial-ventas.html">Ventas</a>
+            <a href="reportar.html">Reportar</a>
+        </nav>
+    </header>
+    <main class="contenedor">
+        <header class="encabezado">
+            <h1>Historial de ventas</h1>
+            <p>Consultá las ventas registradas en el sistema.</p>
+        </header>
+        <section class="tarjeta">
+            <div class="tabla-wrap">
+                <table id="tabla-ventas">
+                    <thead>
+                        <tr>
+                            <th>Fecha y hora</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../api/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

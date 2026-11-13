@@ -1,23 +1,69 @@
-@media (max-width: 1024px) and (min-width: 768px) {
 
-     body {
-        background-color: rgb(81, 104, 218);
-    }
+/* ==============================
+   RESPONSIVE - TABLETS
+============================== */
 
-    nav ul {
+@media (max-width: 800px) {
+
+    /* Barra de navegacion */
+    .barra {
+        align-items: flex-start;
         flex-direction: column;
-        gap: 15px;
     }
 
-    header h1 {
-        font-size: 2rem;
+    .nav {
+        width: 100%;
     }
 
-    section {
-        padding: 20px;
+    /* Rejillas */
+    .rejilla,
+    .atajos {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .funcionalidades li {
-        font-size: 1rem;
+    /* Contenedor principal */
+    .contenedor {
+        margin: 28px auto;
     }
+
+}
+
+/* ==============================
+   RESPONSIVE - CELULARES
+============================== */
+
+@media (max-width: 560px) {
+
+    /* Rejillas y formularios */
+    .rejilla,
+    .atajos,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .campo.completo {
+        grid-column: auto;
+    }
+
+    /* Navegacion */
+    .nav {
+        gap: 3px;
+    }
+
+    .nav a,
+    .nav button {
+        padding: 8px 10px;
+        font-size: .9rem;
+    }
+
+    /* Login */
+    .login-caja {
+        padding: 25px 20px;
+    }
+
+    /* Contenedor principal */
+    .contenedor {
+        width: min(100% - 24px, 1100px);
+    }
+
 }

@@ -3,23 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AuraCheck</title>
-    <link rel="stylesheet" href="css/reportar.css">
-    <link rel="icon" type="image/png" href="media/Logo.png">
+    <title>Reportar problema | AuraCheck</title>
+    <link rel="icon" href="media/Logo.png">
+    <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <main>
-        <h1>Informar problema</h1>
-        <p>Si encontraste un problema, por favor informarlo a través de la caja de comentarios:</p>
+    <header class="barra">
+        <a class="marca" href="principal.html">
+            <img src="media/Logo.png" alt="">AuraCheck
+        </a>
+        <nav class="nav">
+            <a href="principal.html">Inicio</a>
+            <a href="agregar.html">Productos</a>
+            <a href="inventario.html">Inventario</a>
+            <a href="registrar.html">Registrar venta</a>
+            <a href="historial-ventas.html">Ventas</a>
+            <a class="activo" href="reportar.html">Reportar</a>
+        </nav>
+    </header>
+    <main class="contenedor">
+        <header class="encabezado">
+            <h1>Informar un problema</h1>
+            <p>Contanos qué ocurrió para poder identificar el inconveniente.</p>
+        </header>
+        <section class="tarjeta">
+            <div class="mensaje" data-mensaje hidden></div>
+            <form id="form-problema">
+                <div class="campo">
+                    <label for="problema">Descripción del problema</label>
+                    <textarea id="problema" name="problema" rows="6" maxlength="1000" placeholder="Describí el inconveniente con el mayor detalle posible..." required></textarea>
+                </div>
+                <div class="acciones">
+                    <button class="btn" type="submit">Enviar reporte</button>
+                    <a class="btn btn-secundario" href="principal.html">Cancelar</a>
+                </div>
+            </form>
+        </section>
     </main>
-    <section>
-        <form action="">
-            <label for="problema">Describe el problema:</label><br>
-            <textarea id="problema" name="problema" rows="4" cols="50"></textarea><br>
-            <input type="submit" value="Enviar">
-        </form>
-    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="../api/config.js"></script>

@@ -3,71 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AuraCheck</title>
-
-    <!-- LINK CSS -->
+    <title>Ingresar | AuraCheck</title>
+    <link rel="icon" href="media/Logo.png">
     <link rel="stylesheet" href="css/estilos.css">
-
-    <!-- ICONO -->
-    <link rel="icon" type="image/png" href="css/media/Logo.png">
-
-    <!-- LINKEO DEL RESPONSIVE -->
     <link rel="stylesheet" href="css/responsive.css">
-
-    
-
 </head>
-<body>
+<body class="login-fondo">
+    <main class="login-caja">
+        <div class="marca">
+            <img src="media/Logo.png" alt="Logo AuraCheck">AuraCheck
+        </div>
+        <h1>Bienvenido/a</h1>
+        <p>Ingresá a tu espacio de control de inventario.</p>
+        <div class="mensaje" data-mensaje hidden></div>
+        <form id="form-login">
+            <div class="campo">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="nombre@correo.com" autocomplete="email" required>
+            </div>
+            <div class="campo">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Tu contraseña" autocomplete="current-password" required>
+            </div>
+            
+            <!-- olvidaste la contraseña? -->
+             <section class="recordar">
+    <a href="olvide-password.html">¿Olvidaste tu contraseña?</a>
+</section>
 
-    <video autoplay muted loop id="myVideo">
-        <source src="media/iniciodesesion.mp4" type="video/mp4">
-    </video>
 
-    <!-- INICIO DE SESIÓN -->
-    <main class="formulario">
 
-        <h1>Iniciar Sesión</h1>
 
-        <!-- AGREGAMOS id="login" -->
-        <form id="login">
 
-            <section class="username">
-                <input type="text" id="usuario" required>
-                <label>Usuario</label>
-            </section>
-
-            <section class="contraseña"> 
-                <input type="password" id="password" required>
-                <label>Contraseña</label>
-            </section>
-
-            <!-- OLVIDO DE CONTRASEÑA -->
-            <section class="recordar">
-                ¿Olvidaste tu contraseña?
-            </section>
-
-            <input type="submit" value="Iniciar Sesión">
-
-            <!-- EN CASO DE QUE EL USUARIO NO SE HAYA REGISTRADO -->
-            <section class="registrar">
-                <p>
-                    ¿No tienes una cuenta?
-                    <a href="registrar.html">Regístrate aquí</a>
-                </p>
-            </section>
-
+            <div class="acciones">
+                <button class="btn" type="submit">Iniciar sesión</button>
+            </div>
         </form>
-
+        <p class="login-enlace">¿Todavía no tenés una cuenta? <a href="crear-cuenta.html">Crear cuenta</a></p>
     </main>
 
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../api/config.js"></script>
-<script src="js/api.js"></script>
-<script src="js/main.js"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../api/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

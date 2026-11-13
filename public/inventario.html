@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario | AuraCheck</title>
+    <link rel="icon" href="media/Logo.png">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="barra">
+        <a class="marca" href="principal.html">
+            <img src="media/Logo.png" alt="">AuraCheck
+        </a>
+        <nav class="nav">
+            <a href="principal.html">Inicio</a>
+            <a href="agregar.html">Productos</a>
+            <a class="activo" href="inventario.html">Inventario</a>
+            <a href="registrar.html">Registrar venta</a>
+            <a href="historial-ventas.html">Ventas</a>
+            <a href="reportar.html">Reportar</a>
+        </nav>
+    </header>
+    <main class="contenedor">
+        <header class="encabezado">
+            <h1>Consulta de inventario</h1>
+            <p>Revisá las cantidades disponibles. Para agregar o eliminar artículos, ingresá a Productos.</p>
+        </header>
+        <section class="tarjeta">
+            <div class="tabla-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Unidades disponibles</th>
+                            <th>Precio</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-inventario"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../api/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -8,7 +8,7 @@ body{
     align-items: center;
     color: white;
 
-    background: url('css/media/registrarr.png') center/cover;
+    background: url('../media/registrarr.png') center/cover;
 }
 
 /* Título */
