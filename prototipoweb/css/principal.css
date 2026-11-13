@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0; /* Texto gris claro para no cansar la vista */
+    line-height: 1.6;
+    padding: 20px;
+    background-color: rgba(31, 41, 91, 0.866); /* Color de fondo por defecto */
+
+}
+
+/* Estilos del Encabezado y Navegación */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #b0bec5; /* Color suave para los links */
+    font-weight: bold;
+}
+
+
+/* Estilos de las Secciones Principales */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    background-color: #22277cb0; /* Fondo de tarjetas */
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    border: 1px solid #333; /* Borde sutil */
+}
+
+section h2 {
+    color: #ffffff; /* Color de acento para títulos */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 10px;
+}
+
+section p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Estilos específicos para la lista de funcionalidades */
+.funcionalidades ul {
+    list-style-position: inside;
+    list-style-type: disc;
+    margin-left: 10px;
+}
+
+.funcionalidades ul li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+/* Estilos para la sección de contacto */
+.contacto p {
+    font-weight: bold;
+}

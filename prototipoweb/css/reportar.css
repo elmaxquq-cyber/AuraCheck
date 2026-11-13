@@ -1,0 +1,52 @@
+
+body {
+
+    padding: 2rem 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background-image: url('../media/problema.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+/* Encabezado (Título y subtítulo) */
+main {
+    border: 1px solid rgb(0, 0, 0, 0.281); /* Un borde sutil para definir el área */
+    background-color: rgba(116, 153, 222, 0.599); /* Un toque sutil de transparencia */
+    width: 100%;
+    max-width: 550px;
+    padding: 2.5rem 2.5rem 1rem 2.5rem;
+    border-radius: 16px 16px 0 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Caja del formulario */
+section {
+    border: 1px solid rgba(0, 0, 0, 0.281); /* Un borde sutil para definir el área */
+    background-color: rgba(116, 153, 222, 0.599); /* Un toque sutil de transparencia */
+    width: 100%;
+    max-width: 550px;
+    padding: 0 2.5rem 2.5rem 2.5rem;
+    border-radius: 0 0 16px 16px;
+    /* Aumentamos un poco la sombra para que se despegue más del fondo */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); 
+    box-sizing: border-box;
+}
+
+/* ... El resto de tus estilos (h1, p, label, textarea, input) se quedan exactamente igual ... */

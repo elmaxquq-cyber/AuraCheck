@@ -1,0 +1,2 @@
+@media(max-width:800px){.barra{align-items:flex-start;flex-direction:column}.nav{width:100%}.rejilla,.atajos{grid-template-columns:1fr 1fr}.contenedor{margin:28px auto}}
+@media(max-width:560px){.rejilla,.atajos,.form-grid{grid-template-columns:1fr}.campo.completo{grid-column:auto}.nav{gap:3px}.nav a,.nav button{padding:8px 10px;font-size:.9rem}.login-caja{padding:25px 20px}.contenedor{width:min(100% - 24px,1100px)}}
